@@ -23,6 +23,7 @@ pgAdmin4 is exposed on port 5050.
         - password: password
         - to change these, view the docker-compose.yml
 - Copy the sample databases to the default pgadmin4 storage location in the container
+    - NOTE: The is no longer required as it is done via the gitpod.yml startup sequence, however leaving this here for future reference or for manually moving things to the pgadmin4 storage location
     - The default location is - /var/lib/pgadmin/storage/<username>
     - docker exec -i postgres_db
     - cp -r databases/ /var/lib/pgadmin/storage/admin_comp520.com
