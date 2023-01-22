@@ -1,4 +1,4 @@
-# WIP - Gitpod Environment for COMP520
+# Gitpod Environment for COMP520
 
 Installs the following:
 - postgres 15.1
