@@ -1,0 +1,26 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      docker-compose up -d
+      gp sync-done databases-up
+  - name: copy databases to containers
+    init: gp sync-await databases-up
+    command:
+      sleep 5 &&
+      docker exec -i pgadmin4 sh -c "cp -r databases/ /var/lib/pgadmin/storage/admin_comp520.com"
+
+
+ports:
+  - port: 5432
+    onOpen: ignore
+    visibility: private
+  - port: 3306
+    onOpen: ignore
+    visibility: private
+ 
+vscode:
+  extensions:
+    - mtxr.sqltools
+    - mtxr.sqltools-driver-pg
